@@ -4,6 +4,10 @@
 
 Hackbar is a macro keys pad in the shape of a bar designed to be placed on the long side of your keyboard. It features 7 switches, an encoder, and two neopixels per key and encoder. It is also inspired by the [Google g-board april fools video](https://www.youtube.com/watch?v=9G3DWHf1xX0). 
 
+# firmware
+
+KMK firmware is used to tell what the mcu sends to the host device when recieving switch inputs. 
+
 # CAD
 
 The cad can be found on [onshape](https://cad.onshape.com/documents/5cba3b888e11db533a85f54f/w/c697cc47e3473bff9588772d/e/0aef22490cba32d3fbb4fb29?renderMode=0&uiState=698d35e3e8867af81a3cb232). 
