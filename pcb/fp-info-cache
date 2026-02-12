@@ -1,4 +1,4 @@
-26386029716338020
+26391342289395636
 1_udu_lib
 HM-NFC-Class6-Antenna
 <h1> Class 6 Antenna - 50 pF #01 </h1>{return}<h3>{return}Size: 	24 x 18 mm{return}<br>{return}Width: 	0.25 mm{return}<br>{return}Gap: 	0.1 mm{return}<br>{return}Turns: 	7{return}</h3>
@@ -41,6 +41,13 @@ XIAO-RP2040-SMD
 0
 20
 20
+1_udu_lib
+blueprint
+
+
+0
+0
+0
 1_udu_lib
 card_drawing
 
@@ -105,6 +112,13 @@ hackbar_back
 0
 0
 1_udu_lib
+hackbar_back2
+
+
+0
+0
+0
+1_udu_lib
 hackbar_front
 
 
@@ -113,6 +127,13 @@ hackbar_front
 0
 1_udu_lib
 hackbar_test
+
+
+0
+0
+0
+1_udu_lib
+hackclub
 
 
 0
