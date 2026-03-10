@@ -1,6 +1,6 @@
 # hackbar
 
-![hackbar render](img.png)
+![hackbar photo](final.png)
 
 Hackbar is a macro keys pad in the shape of a bar designed to be placed on the long side of your keyboard. It features 7 switches, an encoder, and two neopixels per key and encoder. It is also inspired by the [Google g-board april fools video](https://www.youtube.com/watch?v=9G3DWHf1xX0). 
 
