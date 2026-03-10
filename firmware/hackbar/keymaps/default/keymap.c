@@ -9,22 +9,24 @@ enum layers {
 };
 
 enum custom_keycodes {
-    REC_TOG = SAFE_RANGE,     // Alt+F9
+    REC_TG,                   // Alt+F9
     INSTANT_REPLAY,           // Alt+Shift+F10
     RGB_TG,                   // RGB toggle
-    RGB_MD,                   // RGB mode cycle
-    RGB_BR                    // RGB brightness up
+    RGB_BRI,                  // RGB brightness increase
+    RGB_BRD                   // RGB brightness decrease
 };
 
 #ifdef RGBLIGHT_ENABLE
 const rgblight_segment_t PROGMEM layer0_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 2, HSV_CYAN},   // Encoder LEDs
-    {2, 14, HSV_TEAL}   // Key LEDs
+    {0, 1, HSV_CYAN},
+    {1, 1, HSV_OFF},
+    {2, 14, HSV_CYAN}
 );
 
 const rgblight_segment_t PROGMEM layer1_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-    {0, 2, HSV_GOLDENROD},
-    {2, 14, HSV_MAGENTA}
+    {0, 1, HSV_OFF},
+    {1, 1, HSV_GREEN},
+    {2, 14, HSV_GREEN}
 );
 
 const rgblight_segment_t *const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
@@ -36,23 +38,23 @@ const rgblight_segment_t *const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_L0] = LAYOUT_1x8(
         TG(1),
-        KC_Q,
-        KC_W,
-        KC_E,
-        KC_R,
-        KC_T,
-        KC_Y,
-        KC_U
+        KC_B,     // misc
+        KC_LEFT,  // ddr/mania
+        KC_DOWN,  // ddr/mania
+        KC_UP,    // ddr/mania
+        KC_RIGHT, // ddr/mania
+        KC_Z,     // osu
+        KC_X      // osu
     ),
 
     [_L1] = LAYOUT_1x8(
         TG(1),
         KC_PSCR,          // screenshot
-        REC_TOG,          // record toggle (Alt+F9)
-        INSTANT_REPLAY,   // instant replay (Alt+Shift+F10)
-        RGB_TG,           // RGB on/off
-        RGB_MD,           // cycle RGB effects
-        RGB_BR,           // increase brightness
+        KC_PAGE_UP,       // shareX gif record
+        KC_PAGE_DOWN,     // shareX video record
+        REC_TG,           // nvidia record (Alt+F9)
+        INSTANT_REPLAY,   // nvidia instant replay (Alt+Shift+F10)
+        RGB_TG,           // rgb on/off
         LGUI(KC_L)        // lock screen
     ),
 };
@@ -61,7 +63,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (!record->event.pressed) return true;
 
     switch (keycode) {
-        case REC_TOG:
+        case REC_TG:
             tap_code16(A(KC_F9));
             return false;
         case INSTANT_REPLAY:
@@ -71,11 +73,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case RGB_TG:
             rgblight_toggle();
             return false;
-        case RGB_MD:
-            rgblight_step();
-            return false;
-        case RGB_BR:
+        case RGB_BRI:
             rgblight_increase_val();
+            return false;
+        case RGB_BRD:
+            rgblight_decrease_val();
             return false;
 #endif
     }
